@@ -2,7 +2,7 @@
  *
  * Color picker
  * Author: Stefan Petre www.eyecon.ro
- * Modified by Nicholas Kircher
+ * Modified by Nicholas Kircher (https://github.com/MiracleBlue/jQuery-colorpicker)
  * 
  * Dual licensed under the MIT and GPL licenses
  * 
