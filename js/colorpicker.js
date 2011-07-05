@@ -77,6 +77,7 @@
 			},
 			change = function (ev) {
 				var cal = $(this).parent().parent(), col;
+				debug("change");
 				if (this.parentNode.className.indexOf('_hex') > 0) {
 					cal.data('colorpicker').color = col = HexToHSB(fixHex(this.value));
 				} else if (this.parentNode.className.indexOf('_hsb') > 0) {
@@ -129,7 +130,7 @@
 				if (ev.data.preview) {
 					change.apply(ev.data.field.get(0), [true]);
 				}
-				//debug("move");
+				debug("move");
 				return false;
 			},
 			upIncrement = function (ev) {
@@ -376,16 +377,19 @@
 			HSBToHex = function (hsb) {
 				return RGBToHex(HSBToRGB(hsb));
 			},
-			restoreOriginal = function () {
+			restoreOriginal = function (ev) {
 				var cal = $(this).parent();
 				var col = cal.data('colorpicker').origColor;
+				col = fixHSB(col);
 				cal.data('colorpicker').color = col;
 				fillRGBFields(col, cal.get(0));
 				fillHexFields(col, cal.get(0));
 				fillHSBFields(col, cal.get(0));
 				setSelector(col, cal.get(0));
 				setHue(col, cal.get(0));
+				setCurrentColor(col, cal.get(0));
 				setNewColor(col, cal.get(0));
+				change.apply($(this).parent().find('.colorpicker_hsb_s input').get(0), [true]); // WOO IT WORKS!  Needed to set get(0) to retrieve raw DOM elem
 			};
 		return {
 			init: function (opt) {
