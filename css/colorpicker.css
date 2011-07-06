@@ -67,6 +67,7 @@
 	left: 283px;
 	top: 13px;
 	background: #f00;
+	cursor: pointer;
 }
 .colorpicker input {
 	background-color: transparent;
@@ -146,6 +147,7 @@
 	left: 322px;
 	top: 142px;
 	overflow: hidden;
+	cursor: pointer;
 }
 .colorpicker_focus {
 	background-position: center;
